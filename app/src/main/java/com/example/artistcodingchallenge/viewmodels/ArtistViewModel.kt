@@ -7,14 +7,18 @@ import androidx.lifecycle.ViewModel
 import com.example.artistcodingchallenge.api.ArtistRepository
 import com.example.artistcodingchallenge.models.ArtistResponse
 import com.example.artistcodingchallenge.models.TrackData
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class ArtistViewModel : ViewModel() {
+@HiltViewModel
+class ArtistViewModel @Inject constructor(
+    private val artistRepo : ArtistRepository
+): ViewModel() {
 
     private val disposables : CompositeDisposable = CompositeDisposable()
     private val tracks : MutableLiveData<List<TrackData>> = MutableLiveData()
-    private val artistRepo : ArtistRepository = ArtistRepository()
 
     fun getTracks() : LiveData<List<TrackData>> {
         return tracks
