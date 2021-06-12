@@ -1,10 +1,8 @@
 package com.example.artistcodingchallenge.adapters
 
-import android.media.MediaParser
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.artistcodingchallenge.databinding.ActivityMainBinding
 import com.example.artistcodingchallenge.databinding.TrackListItemBinding
 import com.example.artistcodingchallenge.models.TrackData
 
@@ -39,11 +37,21 @@ class ArtistRVAdapter : RecyclerView.Adapter<ArtistRVAdapter.ViewHolder>() {
         fun bind(trackData: TrackData) {
 
             with(binding) {
-                artistName.text = trackData.artistName
+                if(trackData.artistName!!.length > 15) {
+                    artistName.text = trackData.artistName?.take(15) + "..."
+                } else {
+                    artistName.text = trackData.artistName
+                }
+
+                if(trackData.trackPrice.toString() != "null") {
+                    trackPrice.text = "$" + trackData.trackPrice.toString()
+                } else {
+                    trackPrice.text = "-"
+                }
+
                 trackName.text = trackData.trackName
-                trackPrice.text = trackData.trackPrice.toString()
                 genre.text = trackData.primaryGenreName
-                releaseDate.text = trackData.releaseDate
+                releaseDate.text = trackData.releaseDate?.take(10)
             }
 
         }
