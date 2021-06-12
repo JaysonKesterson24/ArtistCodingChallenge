@@ -8,13 +8,24 @@
 
     <EditText
         android:id="@+id/artist_search_box"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:inputType="text"
         android:layout_marginTop="10dp"
         android:hint="@string/enter_artist_name"
         app:layout_constraintEnd_toStartOf="@+id/search_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/track_rv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/search_btn"
@@ -38,6 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/artist_search_box" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/track_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
