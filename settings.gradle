@@ -1,0 +1,2 @@
+rootProject.name = "ArtistCodingChallenge"
+include ':app'
