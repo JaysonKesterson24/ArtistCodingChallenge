@@ -19,6 +19,6 @@ class ArtistRepository {
     private val artistApiService : ArtistApiService = retrofit.create(ArtistApiService::class.java)
 
     fun getTrackResults(term : String) : Single<ArtistResponse> {
-        return artistApiService.getArtistTracks()
+        return artistApiService.getArtistTracks(term)
     }
 }
