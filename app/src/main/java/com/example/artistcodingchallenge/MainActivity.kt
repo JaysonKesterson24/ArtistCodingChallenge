@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         trackAdapter = ArtistRVAdapter()
 
         viewModel.getTracks().observe(this, Observer { trackList ->
-            binding.progressBar.visibility = View.INVISIBLE
+            binding.progressBar.visibility = View.GONE
             trackAdapter.updateList(trackList)
         })
 
