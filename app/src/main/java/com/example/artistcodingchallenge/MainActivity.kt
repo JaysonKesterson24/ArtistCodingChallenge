@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.artistcodingchallenge.adapters.ArtistRVAdapter
 import com.example.artistcodingchallenge.databinding.ActivityMainBinding

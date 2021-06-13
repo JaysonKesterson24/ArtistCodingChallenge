@@ -49,6 +49,7 @@ class ArtistRVAdapter : RecyclerView.Adapter<ArtistRVAdapter.ViewHolder>() {
                     trackPrice.text = "-"
                 }
 
+
                 trackName.text = trackData.trackName
                 genre.text = trackData.primaryGenreName
                 releaseDate.text = trackData.releaseDate?.take(10)
