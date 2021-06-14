@@ -17,7 +17,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(baseUrl : String) : Retrofit {
+    fun provideRetrofit(baseUrl: String): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
@@ -27,14 +27,14 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideArtistApiService() : ArtistApiService {
+    fun provideArtistApiService(): ArtistApiService {
         return provideRetrofit("https://itunes.apple.com/")
             .create(ArtistApiService::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideArtistRepository() : ArtistRepository {
+    fun provideArtistRepository(): ArtistRepository {
         return ArtistRepository(provideArtistApiService())
     }
 }

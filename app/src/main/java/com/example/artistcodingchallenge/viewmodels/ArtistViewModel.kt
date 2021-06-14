@@ -14,17 +14,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ArtistViewModel @Inject constructor(
-    private val artistRepo : ArtistRepository
-): ViewModel() {
+    private val artistRepo: ArtistRepository
+) : ViewModel() {
 
-    private val disposables : CompositeDisposable = CompositeDisposable()
-    private val tracks : MutableLiveData<List<TrackData>> = MutableLiveData()
+    private val disposables: CompositeDisposable = CompositeDisposable()
+    private val tracks: MutableLiveData<List<TrackData>> = MutableLiveData()
 
-    fun getTracks() : LiveData<List<TrackData>> {
+    fun getTracks(): LiveData<List<TrackData>> {
         return tracks
     }
 
-    fun loadTracks(term : String) {
+    fun loadTracks(term: String) {
         disposables.add(
             artistRepo.getTrackResults(term)
                 .subscribeOn(Schedulers.io())

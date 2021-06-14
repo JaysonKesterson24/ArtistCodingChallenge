@@ -4,7 +4,7 @@ import com.example.artistcodingchallenge.utils.TestGsonConverter
 
 object ArtistResponses {
 
-    const val artistResponseJson : String = "{\n" +
+    const val artistResponseJson: String = "{\n" +
             " \"resultCount\":20,\n" +
             " \"results\": [\n" +
             "{\"wrapperType\":\"track\", \"kind\":\"song\", \"artistId\":62763238, \"collectionId\":1011505963, \"trackId\":1011505965, \"artistName\":\"Yo Gotti\", \"collectionName\":\"Rihanna (feat. Young Thug) - Single\", \"trackName\":\"Rihanna (feat. Young Thug)\", \"collectionCensoredName\":\"Rihanna (feat. Young Thug) - Single\", \"trackCensoredName\":\"Rihanna (feat. Young Thug)\", \"artistViewUrl\":\"https://music.apple.com/us/artist/yo-gotti/62763238?uo=4\", \"collectionViewUrl\":\"https://music.apple.com/us/album/rihanna-feat-young-thug/1011505963?i=1011505965&uo=4\", \"trackViewUrl\":\"https://music.apple.com/us/album/rihanna-feat-young-thug/1011505963?i=1011505965&uo=4\", \n" +

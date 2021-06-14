@@ -28,34 +28,32 @@ class ArtistRVAdapter : RecyclerView.Adapter<ArtistRVAdapter.ViewHolder>() {
         holder.bind(trackList[position])
     }
 
-    fun updateList(newList : List<TrackData>) {
+    fun updateList(newList: List<TrackData>) {
         this.trackList = newList
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(private val binding : TrackListItemBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class ViewHolder(private val binding: TrackListItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(trackData: TrackData) {
 
             with(binding) {
-                if(trackData.artistName!!.length > 15) {
+                if (trackData.artistName!!.length > 15) {
                     artistName.text = trackData.artistName?.take(15) + "..."
                 } else {
                     artistName.text = trackData.artistName
                 }
 
-                if(trackData.trackPrice.toString() != "null") {
+                if (trackData.trackPrice.toString() != "null") {
                     trackPrice.text = "$" + trackData.trackPrice.toString()
                 } else {
                     trackPrice.text = "-"
                 }
 
-
                 trackName.text = trackData.trackName
                 genre.text = trackData.primaryGenreName
                 releaseDate.text = trackData.releaseDate?.take(10)
             }
-
         }
-
     }
 }

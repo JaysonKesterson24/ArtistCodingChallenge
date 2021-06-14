@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface ArtistApiService {
     @GET("search/")
     fun getArtistTracks(
-        @Query("term") term : String = "Adele",
-        @Query("limit") limit : Int = 20
-    ) : Single<ArtistResponse>
+        @Query("term") term: String = "Adele",
+        @Query("limit") limit: Int = 20
+    ): Single<ArtistResponse>
 }

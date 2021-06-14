@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ArtistRepository(private val artistApiService: ArtistApiService) {
 
-    fun getTrackResults(term : String) : Single<ArtistResponse> {
+    fun getTrackResults(term: String): Single<ArtistResponse> {
         return artistApiService.getArtistTracks(term)
     }
 }

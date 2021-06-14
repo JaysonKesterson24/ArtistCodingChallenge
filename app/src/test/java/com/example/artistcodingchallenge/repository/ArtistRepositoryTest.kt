@@ -14,7 +14,7 @@ class ArtistRepositoryTest {
     //grabbing ApiService to test Repository functionality
     private val artistApiService = NetworkModule.provideArtistApiService()
 
-    private lateinit var artistRepository : ArtistRepository
+    private lateinit var artistRepository: ArtistRepository
     private val disposables = CompositeDisposable()
 
     @Before
@@ -38,7 +38,9 @@ class ArtistRepositoryTest {
                 .assertValueCount(1)
                 .apply {
                     values().single().also { response ->
-                        assertThat((response.trackData?.first()?.artistName)).isEqualTo(ArtistResponses.testArtistResponse.trackData?.first()?.artistName)
+                        assertThat((response.trackData?.first()?.artistName)).isEqualTo(
+                            ArtistResponses.testArtistResponse.trackData?.first()?.artistName
+                        )
                     }
                 }
         )

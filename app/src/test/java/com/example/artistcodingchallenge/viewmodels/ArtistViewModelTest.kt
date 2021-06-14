@@ -20,10 +20,10 @@ class ArtistViewModelTest {
     // Using executor rule to run tasks synchronously
     val instantExecutorRule = InstantTaskExecutorRule()
 
-    private val artistRepository : ArtistRepository = mockk()
+    private val artistRepository: ArtistRepository = mockk()
 
     private val artistName: String = "Rihanna"
-    private val artistResponse : ArtistResponse = ArtistResponses.testArtistResponse
+    private val artistResponse: ArtistResponse = ArtistResponses.testArtistResponse
 
     private lateinit var artistViewModel: ArtistViewModel
 
@@ -33,13 +33,14 @@ class ArtistViewModelTest {
 
         artistViewModel = ArtistViewModel(artistRepository)
 
-        every{artistRepository.getTrackResults(artistName)} returns Single.just(artistResponse)
+        every { artistRepository.getTrackResults(artistName) } returns Single.just(artistResponse)
     }
 
     @Test
     fun `loadTracks with artist name returns ArtistResponse`() {
         artistViewModel.loadTracks(artistName) // Making the call for the test
-        artistViewModel.getTracks().observeForever {} // Setting a test observer for LiveData to update
+        artistViewModel.getTracks()
+            .observeForever {} // Setting a test observer for LiveData to update
         assertThat(artistViewModel.getTracks().value).isEqualTo(artistResponse.trackData) // checking to make sure we are getting what we expect
     }
 }

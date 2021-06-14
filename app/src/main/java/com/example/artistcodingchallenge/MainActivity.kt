@@ -17,9 +17,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainBinding
-    private val viewModel : ArtistViewModel by viewModels()
-    private lateinit var trackAdapter : ArtistRVAdapter
+    private lateinit var binding: ActivityMainBinding
+    private val viewModel: ArtistViewModel by viewModels()
+    private lateinit var trackAdapter: ArtistRVAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +35,17 @@ class MainActivity : AppCompatActivity() {
         })
 
         with(binding) {
-            search_btn.setOnClickListener{
+            search_btn.setOnClickListener {
                 Log.d("_WORK", "Search Initiated")
                 if (artistSearchBox.text.toString().isNotEmpty()) {
                     progressBar.visibility = View.VISIBLE
                     viewModel.loadTracks(artistSearchBox.text.toString())
                 } else {
-                    Toast.makeText(applicationContext, "You Forgot to add a Search Term!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "You Forgot to add a Search Term!",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
 

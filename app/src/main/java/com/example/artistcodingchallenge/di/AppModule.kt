@@ -12,9 +12,10 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
     @Provides
     @Singleton
-    fun provideArtistApplication(@ApplicationContext context: Context) : ArtistApplication {
+    fun provideArtistApplication(@ApplicationContext context: Context): ArtistApplication {
         return context as ArtistApplication
     }
 
